@@ -385,3 +385,5 @@ if __name__=='__main__':
     update('create table user(id int primary key, name test, email text, passwd text, last_modified real)')
     import doctest
     doctest.testmod()
+
+
