@@ -197,9 +197,7 @@ def with_connection(func):
 class _TransactionCtx(object):
     '''
     _TransactionCtx 同样提供执行上下文，用来管理事务。
-    代码如下:
-    with _TransactionCtx():
-        pass
+
     '''
 
     def __enter__(self):
@@ -232,18 +230,18 @@ class _TransactionCtx(object):
         global  _db_ctx
         logging.info('commit transaction...')
         try:
-            _db_ctx.coonection.commit()
+            _db_ctx.connection.commit()
             logging.info('commit ok.')
         except:
             logging.warning('comit failed. try rollback..')
-            _db_ctx.coonection.rollback()
+            _db_ctx.connection.rollback()
             logging.warning('rollback ok.')
             raise
 
     def rollback(self):
         global _db_ctx
         logging.warning('rollback transaction...')
-        _db_ctx.coonection.rollback()
+        _db_ctx.connectionnection.rollback()
         logging.info('rollback ok.')
 
 
@@ -284,7 +282,7 @@ def _select(sql, first, *args):
     logging.info('SQL: %s, ARGS: %s' %(sql, args))
 
     try:
-        cursor = _db_ctx.coonection.cursor()
+        cursor = _db_ctx.connection.cursor()
         cursor.execute(sql, args)
         if cursor.description:
             names = [x[0] for x in cursor.description]
@@ -328,6 +326,27 @@ def select_int(sql, *args):
 @with_connection
 def select(sql, *args):
     '''
+
+    Execute select SQL and return list or empty list if no result.
+
+    >>> u1 = dict(id=200, name='Wall.E', email='wall.e@test.org', passwd='back-to-earth', last_modified=time.time())
+    >>> u2 = dict(id=201, name='Eva', email='eva@test.org', passwd='back-to-earth', last_modified=time.time())
+    >>> insert('user', **u1)
+    1
+    >>> insert('user', **u2)
+    1
+    >>> L = select('select * from user where id=?', 900900900)
+    >>> L
+    []
+    >>> L = select('select * from user where id=?', 200)
+    >>> L[0].email
+    u'wall.e@test.org'
+    >>> L = select('select * from user where passwd=? order by id desc', 'back-to-earth')
+    >>> L[0].name
+    u'Eva'
+    >>> L[1].name
+    u'Wall.E'
+
     查询集合，如果没有数据则放回空集合。
     :param sql:
     :param args:
@@ -345,12 +364,12 @@ def _update(sql, *args):
     logging.info('SQL: %s, ARGS: %s' %(sql, args))
     try:
         cursor = _db_ctx.connection.cursor()
-        cursor.execute(sql, *args)
+        cursor.execute(sql, args)
         r = cursor.rowcount
         if _db_ctx.transactions==0:
             #没有事务的上下文环境
             logging.info('auto commit')
-            _db_ctx.coonection.commit()
+            _db_ctx.connection.commit()
         return r
     finally:
         if cursor:
@@ -382,7 +401,7 @@ if __name__=='__main__':
     logging.basicConfig(level=logging.DEBUG)
     create_engine('www-data', 'www-data', 'test')
     update('drop table if exists user')
-    update('create table user(id int primary key, name test, email text, passwd text, last_modified real)')
+    update('create table user(id int primary key, name text, email text, passwd text, last_modified real)')
     import doctest
     doctest.testmod()
 
