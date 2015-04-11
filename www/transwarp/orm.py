@@ -21,7 +21,7 @@ class Field(object):
         self._default = kw.get('default', None)
         self.primary_key = kw.get('primary_key', False)
         self.nullable = kw.get('nullable', False)
-        self.updatable = kw.get('updtable', True)
+        self.updatable = kw.get('updatable', True)
         self.insertable = kw.get('insertable', True)
         self.ddl = kw.get('ddl', '')
         self._order = Field._count
@@ -114,7 +114,7 @@ _triggers = frozenset(['pre_insert', 'pre_update', 'pre_delete'])
 def _gen_sql(table_name, mappings):
     pk = None
     sql = ['-- generating SQL for %s:' % table_name, 'create table `%s` (' % table_name]
-    for f in sorted(mappings.values(), lambda x, y: cmp(x._order, y.order)):
+    for f in sorted(mappings.values(), lambda x, y: cmp(x._order, y._order)):
         if not hasattr(f, 'ddl'):
             raise StandardError('no ddl in field "%s".' % n)
         dll = f.ddl
@@ -122,8 +122,8 @@ def _gen_sql(table_name, mappings):
         if f.primary_key:
             pk = f.name
         sql.append(nullable and ' `%s` %s,' % (f.name, dll) or '  `%s` %s not null,' %(f.name, dll) )
-    sql.append(' primary key(`%s`)' % pk)
-    sql.append('); ')
+    sql.append('  primary key(`%s`)' % pk)
+    sql.append(');')
     return '\n'.join(sql)
 
 class ModelMetaclass(type):
@@ -132,6 +132,7 @@ class ModelMetaclass(type):
     '''
     def __new__(cls, name, bases, attrs):
         if name=='Model':
+            #：该方法创建一个类对象
             return type.__new__(cls, name, bases, attrs)
 
     #：保存所有子类型的信息：
@@ -180,6 +181,49 @@ class ModelMetaclass(type):
 class Model(dict):
     '''
     ORM的基类
+
+
+    >>> class User(Model):
+    ...     id = IntegerField(primary_key=True)
+    ...     name = StringField()
+    ...     email = StringField(updatable=False)
+    ...     passwd = StringField(default=lambda : '******')
+    ...     last_modified = FloatField()
+    ...     def pre_insert(self):
+    ...         self.last_modified = time.time()
+    >>> u = User(id=10198, name="Michael", email='orm@db.org')
+    >>> r = u.insert()
+    >>> u.email
+    'orm@db.org'
+    >>> u.last_modified > (time.time() - 2)
+    True
+    >>> f = User.get(10198)
+    >>> f.name
+    u'Michael'
+    >>> f.email = 'change@db.org'
+    >>> r = f.update()
+    >>> len(User.find_all())
+    1
+    >>> g = User.get(10198)
+    >>> g.email
+    u'orm@db.org'
+    >>> r = g.delete()
+    >>> len(db.select('select * from user where id=10198'))
+    0
+    >>> import json
+    >>> print User().__sql__()
+    -- generating SQL for user:
+    create table `user` (
+      `id` bigint not null,
+      `name` varchar(255) not null,
+      `email` varchar(255) not null,
+      `passwd` varchar(255) not null,
+      `last_modified` real not null,
+      primary key(`id`)
+    );
+
+
+
     '''
 
 
@@ -205,7 +249,7 @@ class Model(dict):
         :param pk:
         :return:
         '''
-        d = db.select_one('select * from %s %s' % (cls.__table__, cls.__primary_key__.name), pk)
+        d = db.select_one('select * from %s where %s=?' % (cls.__table__, cls.__primary_key__.name), pk)
         return cls(**d) if d else None
 
     @classmethod
@@ -270,17 +314,18 @@ class Model(dict):
                 else:
                     arg = v.default
                     setattr(self, k, arg)
-                L.append(arg)
+                L.append('`%s`=?' % k)
+                args.append(arg)
         pk = self.__primary_key__.name
         args.append(getattr(self, pk))
-        db.update('update `%s` set %s where `%s`=?' % (self.__table__, ','.join(L), pk), *args)
+        db.update('update `%s` set %s where %s=?' % (self.__table__, ','.join(L), pk), *args)
         return self
 
     def delete(self):
         self.pre_delete and self.pre_insert()
         pk = self.__primary_key__.name
         args = (getattr(self, pk), )
-        db.update('delete from `%s` where `%s`=?' % (self.__table__, pk), *args)
+        db.update('delete from `%s` where %s=?' % (self.__table__, pk), *args)
         return self
 
     def insert(self):
