@@ -62,8 +62,9 @@ class Dict(dict):
     def __setattr__(self, key, value):
         self[key] = value
 
-_TIMEDELTA_ZERO = datetime.timedelta(0)
+_TIMEDELTA_ZERO = datetime.timedelta(0)#当前时间的时间戳对象
 
+#截取时区串的正则
 _RE_TZ = re.compile('^([\+\-])([0-9]{1,2})\:([0-9]{1,2})$')
 
 class UTC(datetime.tzinfo):
@@ -76,11 +77,12 @@ class UTC(datetime.tzinfo):
         utc = str(utc.strip().upper())
         mt = _RE_TZ.match(utc)
         if mt:
-            minus = mt.group(1)=='-'
+            minus = mt.group(1)=='-'#判断时区是否为负
             h = int(mt.group(2))
             m = int(mt.group(3))
+
             if minus:
-                h, m = (-h), (-m)
+                h, m = (-h), (-m)#时区为负数，则将截取的时间改为负数
             self._utcoffset = datetime.timedelta(hours=h, minutes=m)
             self._tzname = 'UTC%s' % utc
         else:
@@ -90,7 +92,7 @@ class UTC(datetime.tzinfo):
         return self._utcoffset
 
     def dst(self, date_time):
-        return _TIMEDELTA_ZERO
+        return _TIMEDELTA_ZERO#
 
     def tzname(self, date_time):
         return self._tzname
@@ -100,7 +102,7 @@ class UTC(datetime.tzinfo):
 
     __repr__ = __str__
 
-
+#响应状态，http标准
 _RESPONSE_STATUSES = {
 
 
@@ -166,7 +168,7 @@ _RESPONSE_STATUSES = {
 
 }
 
-_RE_RESPONSE_STATUS = re.compile(r'^\d\d\d(\[\w\]+)?$')
+_RE_RESPONSE_STATUS = re.compile(r'^\d\d\d(\ [\w\ ]+)?$')
 
 _RESPONSE_HEADERS = (
 
@@ -303,17 +305,34 @@ def _unquote(s, encoding='utf-8'):
 def get(path):
     def _decorator(func):
         func.__web_route__ = path
-        func.__web_method__ = 'post'
+        func.__web_method__ = 'GET'
+        return func
+    return _decorator
+
+def post(path):
+    '''
+
+    :param path:
+    :return:
+    '''
+    def _decorator(func):
+        func.__web_route__ = path
+        func.__web_method__ = 'POST'
         return func
     return _decorator
 
 _re_route = re.compile(r'(\:[a-zA-z_]\w*)')
 
 def _build_regex(path):
-    '''
+    r'''
+    Convert route path to regex.
 
-    :param path:
-    :return:
+    >>> _build_regex('/path/to/:file')
+    '^\\/path\\/to\\/(?P<file>[^\\/]+)$'
+    >>> _build_regex('/:user/:comments/list')
+    '^\\/(?P<user>[^\\/]+)\\/(?P<comments>[^\\/]+)\\/list$'
+    >>> _build_regex(':id-:pid/:w')
+    '^(?P<id>[^\\/]+)\\-(?P<pid>[^\\/]+)\\/(?P<w>[^\\/]+)$'
     '''
     re_list = ['^']
     var_list = []
@@ -322,7 +341,7 @@ def _build_regex(path):
         if is_var:
             var_name = v[1:]
             var_list.append(var_name)
-            re_list.append(r'(?P<%>[^\/]+)' %var_name)
+            re_list.append(r'(?P<%s>[^\/]+)' % var_name)
         else:
             s = ''
             for ch in v:
@@ -336,8 +355,8 @@ def _build_regex(path):
                     s = s + '\\' + ch
             re_list.append(s)
         is_var = not is_var
-        re_list.append('$')
-        return ''.join(re_list)
+    re_list.append('$')
+    return ''.join(re_list)
 
 
 # class Route
@@ -1008,10 +1027,10 @@ _RE_INTERCEPTOR_ENDS_WITH = re.compile(r'^\*([^\*\?]+)$')
 def _build_pattern_fn(pattern):
     m = _RE_INTERCEPTOR_STARTS_WITH.match(pattern)
     if m:
-        return lambda p: p.startwith(m.group(1))
+        return lambda p: p.startswith(m.group(1))
     m = _RE_INTERCEPTOR_ENDS_WITH.match(pattern)
     if m:
-        return lambda p: p.endwith(m.group(1))
+        return lambda p: p.endswith(m.group(1))
     raise ValueError('Invalid pattern definition in interceptor.')
 
 def interceptor(pattern='/'):
