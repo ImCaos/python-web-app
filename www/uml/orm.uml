@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/Users/caoshuai/develop/PycharmProjects/awesome-python-webapp/www/transwarp/orm.py</OriginalElement>
+  <nodes>
+    <node x="2334.780595238095" y="1764.5">www.transwarp.orm.TextField</node>
+    <node x="415.6999999999998" y="1368.0">dict</node>
+    <node x="1837.780595238095" y="1764.5">www.transwarp.orm.IntegerField</node>
+    <node x="1579.780595238095" y="1764.5">www.transwarp.orm.VersionField</node>
+    <node x="3298.280595238095" y="300.0">_abcoll.Callable</node>
+    <node x="1773.642083333333" y="2262.0">www.transwarp.orm.Model</node>
+    <node x="2092.780595238095" y="1764.5">www.transwarp.orm.FloatField</node>
+    <node x="1621.4499999999998" y="886.0">_abcoll.Sized</node>
+    <node x="1944.780595238095" y="146.0">object</node>
+    <node x="2912.780595238095" y="600.0">type</node>
+    <node x="2111.280595238095" y="0.0">_abcoll.Hashable</node>
+    <node x="1446.4499999999998" y="886.5">_abcoll.Iterator</node>
+    <node x="0.0" y="886.0">_abcoll.Container</node>
+    <node x="874.9999999999999" y="853.5">_abcoll.Sequence</node>
+    <node x="2573.780595238095" y="1764.5">www.transwarp.orm.BlobField</node>
+    <node x="1319.780595238095" y="1764.5">www.transwarp.orm.BooleanField</node>
+    <node x="2811.780595238095" y="1764.5">www.transwarp.orm.StringField</node>
+    <node x="246.0" y="886.0">_abcoll.Iterable</node>
+    <node x="2006.780595238095" y="787.0">www.transwarp.orm.Field</node>
+    <node x="3059.780595238095" y="1698.0">www.transwarp.orm.ModelMetaclass</node>
+    <node x="442.0" y="787.0">_abcoll.Mapping</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="www.transwarp.orm.IntegerField" target="www.transwarp.orm.Field">
+      <point x="0.0" y="-25.5" />
+      <point x="1955.280595238095" y="1348.0" />
+      <point x="2147.4948809523808" y="1348.0" />
+      <point x="-56.28571428571422" y="147.0" />
+    </edge>
+    <edge source="www.transwarp.orm.BlobField" target="www.transwarp.orm.Field">
+      <point x="0.0" y="-25.5" />
+      <point x="2682.780595238095" y="1338.0" />
+      <point x="2316.3520238095234" y="1338.0" />
+      <point x="112.57142857142844" y="147.0" />
+    </edge>
+    <edge source="www.transwarp.orm.ModelMetaclass" target="type">
+      <point x="0.0" y="-92.0" />
+      <point x="0.0" y="334.0" />
+    </edge>
+    <edge source="dict" target="_abcoll.Mapping">
+      <point x="-52.3125" y="-422.0" />
+      <point x="781.8874999999998" y="1318.0" />
+      <point x="648.5" y="1318.0" />
+      <point x="0.0" y="147.0" />
+    </edge>
+    <edge source="type" target="_abcoll.Callable">
+      <point x="224.0" y="-334.0" />
+      <point x="3472.780595238095" y="575.0" />
+      <point x="3433.780595238095" y="575.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="www.transwarp.orm.Field" target="object">
+      <point x="0.0" y="-147.0" />
+      <point x="0.0" y="202.0" />
+    </edge>
+    <edge source="www.transwarp.orm.FloatField" target="www.transwarp.orm.Field">
+      <point x="0.0" y="-25.5" />
+      <point x="0.0" y="147.0" />
+    </edge>
+    <edge source="dict" target="_abcoll.Iterable">
+      <point x="-156.9375" y="-422.0" />
+      <point x="677.2624999999998" y="1328.0" />
+      <point x="334.0" y="1328.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="dict" target="_abcoll.Sequence">
+      <point x="52.3125" y="-422.0" />
+      <point x="886.5124999999998" y="1288.0" />
+      <point x="1028.0" y="1288.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+    <edge source="www.transwarp.orm.Model" target="www.transwarp.orm.ModelMetaclass">
+      <point x="103.5" y="-158.0" />
+      <point x="2084.142083333333" y="2237.0" />
+      <point x="3248.780595238095" y="2237.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="www.transwarp.orm.VersionField" target="www.transwarp.orm.Field">
+      <point x="0.0" y="-25.5" />
+      <point x="1698.780595238095" y="1338.0" />
+      <point x="2091.2091666666665" y="1338.0" />
+      <point x="-112.57142857142844" y="147.0" />
+    </edge>
+    <edge source="dict" target="_abcoll.Iterator">
+      <point x="261.5625" y="-422.0" />
+      <point x="1095.7624999999998" y="1308.0" />
+      <point x="1523.9499999999998" y="1308.0" />
+      <point x="0.0" y="47.5" />
+    </edge>
+    <edge source="object" target="_abcoll.Hashable">
+      <point x="0.0" y="-202.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="www.transwarp.orm.StringField" target="www.transwarp.orm.Field">
+      <point x="0.0" y="-25.5" />
+      <point x="2925.780595238095" y="1328.0" />
+      <point x="2372.637738095238" y="1328.0" />
+      <point x="168.85714285714312" y="147.0" />
+    </edge>
+    <edge source="dict" target="_abcoll.Sized">
+      <point x="366.1875" y="-422.0" />
+      <point x="1200.3874999999998" y="1318.0" />
+      <point x="1708.4499999999998" y="1318.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="type" target="_abcoll.Hashable">
+      <point x="0.0" y="-334.0" />
+      <point x="3248.780595238095" y="575.0" />
+      <point x="3287.780595238095" y="575.0" />
+      <point x="3287.780595238095" y="121.0" />
+      <point x="2265.4472619047615" y="121.0" />
+      <point x="61.666666666666515" y="48.0" />
+    </edge>
+    <edge source="dict" target="_abcoll.Container">
+      <point x="-366.1875" y="-422.0" />
+      <point x="468.0124999999998" y="1348.0" />
+      <point x="112.5" y="1348.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="type" target="object">
+      <point x="-224.0" y="-334.0" />
+      <point x="3024.780595238095" y="575.0" />
+      <point x="2376.4472619047615" y="575.0" />
+      <point x="172.66666666666652" y="202.0" />
+    </edge>
+    <edge source="www.transwarp.orm.TextField" target="www.transwarp.orm.Field">
+      <point x="0.0" y="-25.5" />
+      <point x="2444.280595238095" y="1348.0" />
+      <point x="2260.066309523809" y="1348.0" />
+      <point x="56.28571428571422" y="147.0" />
+    </edge>
+    <edge source="www.transwarp.orm.BooleanField" target="www.transwarp.orm.Field">
+      <point x="0.0" y="-25.5" />
+      <point x="1439.780595238095" y="1328.0" />
+      <point x="2034.923452380952" y="1328.0" />
+      <point x="-168.8571428571429" y="147.0" />
+    </edge>
+    <edge source="dict" target="_abcoll.Hashable">
+      <point x="-261.5625" y="-422.0" />
+      <point x="572.6374999999998" y="1338.0" />
+      <point x="235.5" y="1338.0" />
+      <point x="235.5" y="121.0" />
+      <point x="2142.1139285714285" y="121.0" />
+      <point x="-61.666666666666515" y="48.0" />
+    </edge>
+    <edge source="dict" target="object">
+      <point x="156.9375" y="-422.0" />
+      <point x="991.1374999999998" y="1298.0" />
+      <point x="1435.9499999999998" y="1298.0" />
+      <point x="1435.9499999999998" y="575.0" />
+      <point x="2031.1139285714282" y="575.0" />
+      <point x="-172.66666666666674" y="202.0" />
+    </edge>
+    <edge source="www.transwarp.orm.Model" target="dict">
+      <point x="-103.5" y="-158.0" />
+      <point x="1877.142083333333" y="2237.0" />
+      <point x="834.1999999999998" y="2237.0" />
+      <point x="0.0" y="422.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4046517689567191" x="1162.889287194193" y="66.552521878937" />
+  <SelectedNodes>
+    <node>_abcoll.Container</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+  </Categories>
+</Diagram>
+

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/Users/caoshuai/develop/PycharmProjects/awesome-python-webapp/www/transwarp/web.py</OriginalElement>
+  <nodes>
+    <node x="3808.5000000000005" y="1630.5">Exception</node>
+    <node x="4318.264103084415" y="670.0">dict</node>
+    <node x="10.5" y="967.0">www.transwarp.web.Route</node>
+    <node x="3029.5000000000005" y="813.0">www.transwarp.web.Request</node>
+    <node x="194.45082521645008" y="300.0">_abcoll.Callable</node>
+    <node x="1833.0000000000005" y="146.0">object</node>
+    <node x="2769.5000000000005" y="1044.0">www.transwarp.web.MultipartFile</node>
+    <node x="4034.416666666667" y="300.5">_abcoll.Iterator</node>
+    <node x="937.5000000000005" y="1044.0">www.transwarp.web.Template</node>
+    <node x="5086.4723687770565" y="267.5">_abcoll.Sequence</node>
+    <node x="3793.0000000000005" y="2054.0">www.transwarp.web.RedirectError</node>
+    <node x="280.04819399350663" y="1608.0">www.transwarp.web.Jinja2TemplateEngine</node>
+    <node x="4563.264103084415" y="1619.5">www.transwarp.web.Dict</node>
+    <node x="2439.0000000000005" y="1564.0">www.transwarp.web.UTC</node>
+    <node x="1275.5000000000005" y="879.0">www.transwarp.web.Response</node>
+    <node x="1771.5000000000005" y="890.0">www.transwarp.web.WSGIApplication</node>
+    <node x="5412.4723687770565" y="300.0">_abcoll.Sized</node>
+    <node x="3169.416666666667" y="0.0">_abcoll.Hashable</node>
+    <node x="4407.4723687770565" y="300.0">_abcoll.Container</node>
+    <node x="656.5" y="1066.5">www.transwarp.web.TemplateEngine</node>
+    <node x="382.5" y="1011.0">www.transwarp.web.StaticFileRoute</node>
+    <node x="3700.5000000000005" y="912.0">BaseException</node>
+    <node x="2432.5000000000005" y="989.5">datetime.tzinfo</node>
+    <node x="3792.5000000000005" y="1820.0">www.transwarp.web.HttpError</node>
+    <node x="3759.2859848484854" y="300.0">_abcoll.Iterable</node>
+    <node x="4653.4723687770565" y="201.0">_abcoll.Mapping</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="BaseException" target="_abcoll.Iterator">
+      <point x="159.33333333333348" y="-180.0" />
+      <point x="4098.833333333334" y="650.0" />
+      <point x="4111.916666666667" y="650.0" />
+      <point x="0.0" y="47.5" />
+    </edge>
+    <edge source="www.transwarp.web.Jinja2TemplateEngine" target="_abcoll.Callable">
+      <point x="-75.5" y="-59.0" />
+      <point x="355.54819399350663" y="1539.0" />
+      <point x="0.0" y="1539.0" />
+      <point x="0.0" y="590.0" />
+      <point x="228.32582521645008" y="590.0" />
+      <point x="-101.625" y="48.0" />
+    </edge>
+    <edge source="datetime.tzinfo" target="object">
+      <point x="0.0" y="-102.5" />
+      <point x="2591.0000000000005" y="650.0" />
+      <point x="2139.0909090909095" y="650.0" />
+      <point x="47.09090909090901" y="202.0" />
+    </edge>
+    <edge source="BaseException" target="object">
+      <point x="-159.33333333333348" y="-180.0" />
+      <point x="3780.166666666667" y="620.0" />
+      <point x="2280.363636363637" y="620.0" />
+      <point x="188.3636363636365" y="202.0" />
+    </edge>
+    <edge source="www.transwarp.web.Jinja2TemplateEngine" target="www.transwarp.web.TemplateEngine">
+      <point x="75.5" y="-59.0" />
+      <point x="506.54819399350663" y="1539.0" />
+      <point x="787.0" y="1539.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="www.transwarp.web.Response" target="object">
+      <point x="0.0" y="-213.0" />
+      <point x="1513.5000000000005" y="650.0" />
+      <point x="2044.9090909090914" y="650.0" />
+      <point x="-47.09090909090901" y="202.0" />
+    </edge>
+    <edge source="www.transwarp.web.WSGIApplication" target="object">
+      <point x="0.0" y="-202.0" />
+      <point x="0.0" y="202.0" />
+    </edge>
+    <edge source="www.transwarp.web.RedirectError" target="www.transwarp.web.HttpError">
+      <point x="0.0" y="-59.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="BaseException" target="_abcoll.Iterable">
+      <point x="0.0" y="-180.0" />
+      <point x="3939.5000000000005" y="640.0" />
+      <point x="3847.2859848484854" y="640.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="www.transwarp.web.Template" target="object">
+      <point x="0.0" y="-48.0" />
+      <point x="1096.5000000000005" y="640.0" />
+      <point x="1997.8181818181822" y="640.0" />
+      <point x="-94.18181818181824" y="202.0" />
+    </edge>
+    <edge source="www.transwarp.web.HttpError" target="Exception">
+      <point x="0.0" y="-92.0" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="www.transwarp.web.StaticFileRoute" target="object">
+      <point x="63.5" y="-81.0" />
+      <point x="573.0" y="620.0" />
+      <point x="1903.636363636364" y="620.0" />
+      <point x="-188.3636363636365" y="202.0" />
+    </edge>
+    <edge source="www.transwarp.web.UTC" target="datetime.tzinfo">
+      <point x="0.0" y="-103.0" />
+      <point x="0.0" y="102.5" />
+    </edge>
+    <edge source="dict" target="_abcoll.Sized">
+      <point x="366.1875" y="-422.0" />
+      <point x="5102.951603084415" y="650.0" />
+      <point x="5499.4723687770565" y="650.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="www.transwarp.web.TemplateEngine" target="_abcoll.Callable">
+      <point x="-65.25" y="-25.5" />
+      <point x="721.75" y="590.0" />
+      <point x="431.5758252164501" y="590.0" />
+      <point x="101.625" y="48.0" />
+    </edge>
+    <edge source="dict" target="_abcoll.Container">
+      <point x="-52.3125" y="-422.0" />
+      <point x="4684.451603084415" y="580.0" />
+      <point x="4519.9723687770565" y="580.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="www.transwarp.web.Request" target="_abcoll.Iterable">
+      <point x="0.0" y="-279.0" />
+      <point x="3355.0000000000005" y="640.0" />
+      <point x="3788.619318181819" y="640.0" />
+      <point x="-58.666666666666515" y="48.0" />
+    </edge>
+    <edge source="www.transwarp.web.Route" target="object">
+      <point x="88.0" y="-125.0" />
+      <point x="274.5" y="610.0" />
+      <point x="1856.545454545455" y="610.0" />
+      <point x="-235.4545454545455" y="202.0" />
+    </edge>
+    <edge source="www.transwarp.web.Request" target="_abcoll.Iterator">
+      <point x="217.0" y="-279.0" />
+      <point x="3572.0000000000005" y="650.0" />
+      <point x="4060.2500000000005" y="650.0" />
+      <point x="-51.666666666666515" y="47.5" />
+    </edge>
+    <edge source="www.transwarp.web.TemplateEngine" target="object">
+      <point x="65.25" y="-25.5" />
+      <point x="852.25" y="630.0" />
+      <point x="1950.7272727272732" y="630.0" />
+      <point x="-141.27272727272725" y="202.0" />
+    </edge>
+    <edge source="dict" target="_abcoll.Mapping">
+      <point x="156.9375" y="-422.0" />
+      <point x="4893.701603084415" y="650.0" />
+      <point x="4859.9723687770565" y="650.0" />
+      <point x="0.0" y="147.0" />
+    </edge>
+    <edge source="dict" target="_abcoll.Iterable">
+      <point x="-261.5625" y="-422.0" />
+      <point x="4475.201603084415" y="600.0" />
+      <point x="3905.952651515152" y="600.0" />
+      <point x="58.666666666666515" y="48.0" />
+    </edge>
+    <edge source="dict" target="_abcoll.Sequence">
+      <point x="261.5625" y="-422.0" />
+      <point x="4998.326603084415" y="640.0" />
+      <point x="5239.4723687770565" y="640.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+    <edge source="www.transwarp.web.Route" target="_abcoll.Callable">
+      <point x="-88.0" y="-125.0" />
+      <point x="98.5" y="600.0" />
+      <point x="296.0758252164501" y="600.0" />
+      <point x="-33.875" y="48.0" />
+    </edge>
+    <edge source="dict" target="_abcoll.Iterator">
+      <point x="-156.9375" y="-422.0" />
+      <point x="4579.826603084415" y="590.0" />
+      <point x="4163.583333333334" y="590.0" />
+      <point x="51.666666666666515" y="47.5" />
+    </edge>
+    <edge source="www.transwarp.web.Request" target="object">
+      <point x="-217.0" y="-279.0" />
+      <point x="3138.0000000000005" y="630.0" />
+      <point x="2233.272727272728" y="630.0" />
+      <point x="141.27272727272748" y="202.0" />
+    </edge>
+    <edge source="www.transwarp.web.Dict" target="dict">
+      <point x="0.0" y="-47.5" />
+      <point x="0.0" y="422.0" />
+    </edge>
+    <edge source="object" target="_abcoll.Hashable">
+      <point x="0.0" y="-202.0" />
+      <point x="2092.0000000000005" y="121.0" />
+      <point x="3215.666666666667" y="121.0" />
+      <point x="-46.25" y="48.0" />
+    </edge>
+    <edge source="Exception" target="BaseException">
+      <point x="0.0" y="-36.5" />
+      <point x="0.0" y="180.0" />
+    </edge>
+    <edge source="www.transwarp.web.StaticFileRoute" target="_abcoll.Callable">
+      <point x="-63.5" y="-81.0" />
+      <point x="446.0" y="600.0" />
+      <point x="363.8258252164501" y="600.0" />
+      <point x="33.875" y="48.0" />
+    </edge>
+    <edge source="www.transwarp.web.MultipartFile" target="object">
+      <point x="0.0" y="-48.0" />
+      <point x="2889.5000000000005" y="640.0" />
+      <point x="2186.181818181819" y="640.0" />
+      <point x="94.18181818181824" y="202.0" />
+    </edge>
+    <edge source="dict" target="_abcoll.Hashable">
+      <point x="52.3125" y="-422.0" />
+      <point x="4789.076603084415" y="570.0" />
+      <point x="4642.9723687770565" y="570.0" />
+      <point x="4642.9723687770565" y="121.0" />
+      <point x="3308.166666666667" y="121.0" />
+      <point x="46.25" y="48.0" />
+    </edge>
+    <edge source="dict" target="object">
+      <point x="-366.1875" y="-422.0" />
+      <point x="4370.576603084415" y="610.0" />
+      <point x="2327.454545454546" y="610.0" />
+      <point x="235.4545454545455" y="202.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.43686883140922206" x="1924.8201181571992" y="319.10420236916025" />
+  <SelectedNodes>
+    <node>object</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+  </Categories>
+</Diagram>
+
