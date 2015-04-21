@@ -132,7 +132,7 @@ class _Engine(object):
         return self.connect
 
 
-def create_engine(user, password, database, host='127.0.0.1', port=3306, **kw):
+def create_engine(user, password, database, host, port, **kw):
     import mysql.connector
     global engine
     if engine is not None:

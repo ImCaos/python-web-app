@@ -23,7 +23,7 @@ class User(Model):
     created_at = FloatField(updatable=False, default=time.time())
 
 
-class Bolg(Model):
+class Blog(Model):
     __table__ = 'blogs'
 
     id = StringField(primary_key=True, default=next_id, ddl='varchar(50)')

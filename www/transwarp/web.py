@@ -564,6 +564,10 @@ class Request(object):
         return self._environ
 
     @property
+    def request_method(self):
+        return self._environ['REQUEST_METHOD']
+
+    @property
     def path_info(self):
         '''
 
@@ -965,10 +969,10 @@ class Jinja2TemplateEngine(TemplateEngine):
     '''
 
     def __init__(self, templ_dir, **kw):
-        from jinja2 import Enviroment, FileSystemLoader
+        from jinja2 import Environment, FileSystemLoader
         if not 'autoescape' in kw:
             kw['autoescape'] = True
-        self._env = Enviroment(loader=FileSystemLoader(templ_dir), **kw)
+        self._env = Environment(loader=FileSystemLoader(templ_dir), **kw)
 
     def add_filter(self, name, fn_filter):
         self._env.filters[name] = fn_filter
