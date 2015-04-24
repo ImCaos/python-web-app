@@ -291,7 +291,7 @@ class Model(dict):
         查询记录数量
         :return:
         '''
-        return db.select_int('select count(`%s`) from %s' % (cls.__primary_key.name, cls.__table__))
+        return db.select_int('select count(`%s`) from %s' % (cls.__primary_key__.name, cls.__table__))
 
     @classmethod
     def dount_by(cls, where, *args):

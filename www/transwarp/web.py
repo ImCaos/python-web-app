@@ -225,7 +225,7 @@ class HttpError(Exception):
     '''
     def __init__(self, code):
         super(HttpError, self).__init__()
-        self.status = '%d %s' % (code, _RESPONSE_HEADERS[code])
+        self.status = '%d %s' % (code, _RESPONSE_STATUSES[code])
 
     def header(self, name, value):
         if not hasattr(self, '_headers'):
