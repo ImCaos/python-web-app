@@ -1162,7 +1162,7 @@ class WSGIApplication(object):
         self._check_not_running()
         self._template_engine = engine
 
-    def add_moudel(self, mod):
+    def add_module(self, mod):
         self._check_not_running()
         m = mod if type(mod)==types.ModuleType else _load_module(mod)
         logging.info('Add moudel: %s' % m.__name__)

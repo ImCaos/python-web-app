@@ -39,7 +39,7 @@ $(function() {
                         showError(err);
                     }
                     else {
-                        return location.assign(result.admin ? '/manage/' : '/');
+                        return location.assign(result.admin ? '/manage/blogs' : '/');
                     }
                     stopLoading();
                 });

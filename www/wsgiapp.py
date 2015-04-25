@@ -42,9 +42,10 @@ template_engine.add_filter('datetime', datetime_filter)
 wsgi.template_engine = template_engine
 
 import urls
+
 wsgi.add_interceptor(urls.user_interceptor)
 wsgi.add_interceptor(urls.manage_interceptor)
-wsgi.add_moudel(urls)
+wsgi.add_module(urls)
 
 if __name__ == '__main__':
     wsgi.run(9000, host='0.0.0.0')
