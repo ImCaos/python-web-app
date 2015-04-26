@@ -18,6 +18,8 @@ function initVue(blog) {
             submit: function (event) {
                 event.preventDefault();
                 startLoading();
+                debugger;
+
                 postApi(action, this.$data, function (err, r) {
                     if (err) {
                         showError(err);
